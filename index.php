@@ -11,6 +11,8 @@
     <script src='https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js'></script>
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="./css/style.css">
     <title>PHP ToDo</title>
 </head>
 
@@ -23,7 +25,7 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
