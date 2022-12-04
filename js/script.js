@@ -29,6 +29,20 @@ createApp({
                     this.newTodoText = "";
                 });
         },
+        changeStatus(index) {
+            const todoListData = {
+                toggleTask: index,
+            };
+            axios
+                .post(this.apiUrl, todoListData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                })
+                .then((res) => {
+                    this.getTodo();
+                });
+        },
     },
 
     mounted() {

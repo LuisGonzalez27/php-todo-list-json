@@ -20,7 +20,18 @@ if (isset($_POST['newTodoText'])){
     // salvare nel file un oggeto convertito in json
     file_put_contents($file_url, json_encode($todo_list));
 
-} else {
+} elseif (isset($_POST['toggleTask'])) {
+    $todoTask = $_POST['toggleTask'];
+
+    if ($todo_list[$todoTask]->done == 1) {
+        $todo_list[$todoTask]->done = false;
+        
+    } else {
+        $todo_list[$todoTask]->done = true;
+    }
+    file_put_contents($file_url, json_encode($todo_list));
+
+}else {
     // chiamata axios per restituire 
     header('Content-Type: application/json');
     echo json_encode($todo_list);

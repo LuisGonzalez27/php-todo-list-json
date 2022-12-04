@@ -26,7 +26,11 @@
             </div>
             
             <ul id="todo-list">
-                <li v-for="(todo, index) in todoList" class="todo" :class="todo.done ? 'done' : '' "> {{todo.text}} </li>
+                <li v-for="(todo, index) in todoList" :key="index">
+                    <div class="todo" :class="todo.done ? 'done' : ''" @click="changeStatus(index)">
+                        {{todo.text}}
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
