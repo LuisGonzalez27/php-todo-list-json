@@ -25,10 +25,17 @@ if (isset($_POST['newTodoText'])){
 
     if ($todo_list[$todoTask]->done == 1) {
         $todo_list[$todoTask]->done = false;
-        
+
     } else {
         $todo_list[$todoTask]->done = true;
     }
+    file_put_contents($file_url, json_encode($todo_list));
+
+} elseif (isset($_POST['deleteTask'])) {
+    $todoTaskRemove = $_POST['deleteTask'];
+
+    array_splice($todo_list, $todoTaskRemove, 1);
+
     file_put_contents($file_url, json_encode($todo_list));
 
 }else {

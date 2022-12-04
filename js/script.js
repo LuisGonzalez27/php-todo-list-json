@@ -43,6 +43,21 @@ createApp({
                     this.getTodo();
                 });
         },
+        removeTask(index) {
+            const todoListData = {
+                deleteTask: index,
+            };
+            axios
+                .post(this.apiUrl, todoListData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                })
+                .then((res) => {
+                    console.log(res.data);
+                    this.getTodo();
+                });
+        },
     },
 
     mounted() {

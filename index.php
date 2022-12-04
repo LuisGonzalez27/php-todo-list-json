@@ -13,25 +13,29 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- style -->
     <link rel="stylesheet" href="./css/style.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>PHP ToDo</title>
 </head>
 
 <body>
     <div id="app">
-        <div class="container pt-5">
+        <div class="container pt-5 my-container">
             <h1>to do list</h1>
             <div class="add-todo">
-                <input type="text" v-model="newTodoText" name="newTodoText">
-                <button @click="addTodo">Aggiungi</button>
-            </div>
-            
-            <ul id="todo-list">
+                <ul id="todo-list">
                 <li v-for="(todo, index) in todoList" :key="index">
                     <div class="todo" :class="todo.done ? 'done' : ''" @click="changeStatus(index)">
                         {{todo.text}}
                     </div>
+                    <span class="icon" @click="removeTask(index)"><i class="fa-solid fa-trash"></i></span>
                 </li>
+                <input type="text" v-model="newTodoText" name="newTodoText">
+                <button @click="addTodo">Aggiungi</button>
             </ul>
+            </div>
+            
+           
         </div>
     </div>
 

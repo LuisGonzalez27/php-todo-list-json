@@ -1,9 +1,13 @@
 ul {
     list-style: none;
+    padding: 0;
 }
 
 li{
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 body {
@@ -14,4 +18,18 @@ body {
 #todo-list .todo.done{
     color: red;
     text-decoration: line-through;
+}
+
+.icon{
+    background-color: red;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.my-container{
+    display: grid;
+    place-items: center;
 }
