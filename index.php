@@ -21,21 +21,23 @@
 <body>
     <div id="app">
         <div class="container pt-5 my-container">
-            <h1>to do list</h1>
-            <div class="add-todo">
-                <ul id="todo-list">
-                <li v-for="(todo, index) in todoList" :key="index">
-                    <div class="todo" :class="todo.done ? 'done' : ''" @click="changeStatus(index)">
-                        {{todo.text}}
+            <h1 class="center display-1 text-capitalize text-secondary">to do list</h1>
+            <div class="add-todo center">
+                <ul id="todo-list" class="list-group col-3">
+                    <li v-for="(todo, index) in todoList" :key="index" class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="todo" :class="todo.done ? 'done' : ''" @click="changeStatus(index)">
+                            {{todo.text}}
+                        </div>
+                        <span class="icon" @click="removeTask(index)"><i class="fa-solid fa-trash"></i></span>
+                    </li>
+                    
+                    <div class="input-group mb-3 pt-3">
+                        <input type="text" class="form-control" v-model="newTodoText" name="newTodoText" aria-label="Recipient's username"
+                            aria-describedby="button-addon2"  placeholder="Inserisci elemento...">
+                        <button class="btn btn-outline-warning" type="button" id="button-addon2" @click="addTodo">Inserisci</button>
                     </div>
-                    <span class="icon" @click="removeTask(index)"><i class="fa-solid fa-trash"></i></span>
-                </li>
-                <input type="text" v-model="newTodoText" name="newTodoText">
-                <button @click="addTodo">Aggiungi</button>
-            </ul>
+                </ul>
             </div>
-            
-           
         </div>
     </div>
 

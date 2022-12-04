@@ -1,15 +1,3 @@
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 body {
     background-color: #001632;
     color: white;
@@ -19,9 +7,15 @@ body {
     color: red;
     text-decoration: line-through;
 }
+.center{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
 
 .icon{
     background-color: red;
+    color: white;
     width: 35px;
     height: 35px;
     display: flex;
@@ -29,7 +23,6 @@ body {
     align-items: center;
     border-radius: 5px;
 }
-.my-container{
-    display: grid;
-    place-items: center;
+li div, .icon{
+    cursor: pointer;
 }
