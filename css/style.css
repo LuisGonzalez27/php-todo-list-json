@@ -6,3 +6,8 @@ body {
     background-color: #001632;
     color: white;
 }
+
+#todo-list .todo.done{
+    color: red;
+    text-decoration: line-through;
+}

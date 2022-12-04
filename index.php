@@ -19,8 +19,14 @@
 <body>
     <div id="app">
         <div class="container pt-5">
-            <ul>
-                <li v-for="todo in myList"> {{todo.text}} </li>
+            <h1>to do list</h1>
+            <div class="add-todo">
+                <input type="text" v-model="newTodoText" name="newTodoText">
+                <button @click="addTodo">Aggiungi</button>
+            </div>
+            
+            <ul id="todo-list">
+                <li v-for="(todo, index) in todoList" class="todo" :class="todo.done ? 'done' : '' "> {{todo.text}} </li>
             </ul>
         </div>
     </div>

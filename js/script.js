@@ -1,16 +1,37 @@
 const { createApp } = Vue;
-createApp({
 
+createApp({
     data() {
         return {
-            myList: [],
+            newTodoText: '',
+            todoList: [],
+            apiUrl: "./server.php",
         };
     },
-    created() {
-        axios.get("server.php").then((resp) => {
-            this.myList = resp.data;
-            console.log(this.myList);
-        });
+    methods: {
+        getTodo() {
+            axios.get(this.apiUrl).then((res) => {
+                this.todoList = res.data;
+            });
+        },
+        addTodo() {
+            const data = {
+                newTodoText: this.newTodoText,
+            };
+            axios
+                .post(this.apiUrl, data, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                })
+                .then((res) => {
+                    this.getTodo();
+                    this.newTodoText = "";
+                });
+        },
     },
 
-}).mount('#app');
+    mounted() {
+        this.getTodo();
+    },
+}).mount("#app");
